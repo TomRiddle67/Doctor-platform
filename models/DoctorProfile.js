@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const doctorProfileSchema = new mongoose.Schema({
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: User,
+		ref:'User',
 		required: true,
 		unique: true,
 },
@@ -20,7 +20,7 @@ const doctorProfileSchema = new mongoose.Schema({
 		type: Number,
 		default: 0,
 },
-	coonsultationFee: {
+	consultationFee: {
 		type: Number,
 		default: 0,
 },
@@ -38,7 +38,7 @@ const doctorProfileSchema = new mongoose.Schema({
 		type: String,
 		trim: true,
 },
-	isAvailble: {
+	isAvailable: {
 		type: Boolean,
 		default: true,
 },
