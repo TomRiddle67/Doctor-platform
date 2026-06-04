@@ -8,5 +8,6 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/auth", require("./routes/authRoutes"));
+app.use('/api/doctors', reuire('./routes/doctorRoutes'));
 
 module.exports = app;
