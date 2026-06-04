@@ -44,5 +44,23 @@ const createProfile = async (req, res) => {
     });
   }
 };
+//getdoctors from db
+const getAllDoctors = async (req, res) => {
+  try {
+    const doctors = await DoctorProfile.find({ isAvailable: true })
+      .populate('user', 'name email phone');
 
-module.exports = { createProfile };
+    res.status(200).json({
+      success: true,
+      count: doctors.length,
+      data: doctors,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+module.exports = { createProfile, getAllDoctors };
